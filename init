@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require 'erb'
+puts "====init project"
+
+$params={}
+
+def get_param_from_user para_name
+  puts "please provide [#{para_name}]"
+  p=gets.chomp
+  $params[para_name]=p
+end
+
+def method_missing m
+  if not $params.has_key? m then
+    get_param_from_user m
+  end
+  $params[m]
+end
+puts "====generating sbt file"
+e=ERB.new(File.read("templates/build.sbt.erb"))
+File.open("build.sbt","w").puts(e.result())

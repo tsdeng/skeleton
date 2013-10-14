@@ -1,10 +1,10 @@
 name := "skeleton"
 
-organization := "uk.co.fluidlabs"
+organization := "com.example"
 
 version := "1.0"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.9.3"
 
 libraryDependencies ++= Seq(
     "org.scalatest" % "scalatest_2.10" % "2.0.M5b" % "test"
